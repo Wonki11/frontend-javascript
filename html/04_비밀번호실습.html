@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>비밀번호 일치여부 확인</title>
+</head>
+<body>
+    <h1>회원가입</h1>
+    비밀번호 입력 : <input type="password" name="" id="inputPw"><br>
+    비밀번호 일치 확인 :<input type="password" name="" id="inputPw2"><br>
+
+    <button onclick="비밀번호확인()">일치하는지 확인하기</button>
+    <script>
+        const 비번1 = document.getElementById("inputPw")
+        const 비번2 = document.getElementById("inputPw2")
+
+        function 비밀번호확인(){
+            const pw = 비번1.value;
+            const pw2 = 비번2.value;
+
+            //만약에 비밀번호가 비밀번호 확인과 일치하다면 alert 이용해
+            // 비밀번호 일치 띄우기 아니라면 alert 이용해 비밀번호 일치하지 않음 띄우기
+
+            if(pw == 'khzzang' && pw2 == 'khzzang'){
+                alert("비밀번호가 일치합니다");
+
+            }else{
+                alert("비밀번호가 일치하지 않습니다");
+            }
+        }
+    </script>
+    
+</body>
+</html>
