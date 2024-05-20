@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>회원가입</title>
+  </head>
+  <body>
+    <h1>회원가입</h1>
+    <div>
+      <div>
+        <label for="">이름 : </label>
+        <input type="text" name="" id="user_name" placeholder="동그라미" />
+      </div>
+      <div>
+        <label for="">이메일 : </label>
+        <input type="text" name="" id="user_email" placeholder="one@kh.kh" />
+      </div>
+      <div>
+        <label for="">비밀번호 : </label>
+        <input type="password" name="" id="user_pw" />
+      </div>
+      <div>
+        <label for="">비밀번호 확인 : </label>
+        <input type="password" name="" id="user_pw_confirm" />
+      </div>
+      <br />
+      <button onclick="비밀번호확인()">회원가입</button>
+      <script>
+        const pw1 = document.getElementById("user_pw");
+        const pw2 = document.getElementById("user_pw_confirm");
+
+        function 비밀번호확인() {
+          const 비번1 = pw1.value;
+          const 비번2 = pw2.value;
+
+          if (비번1 == 비번2) {
+            alert("회원가입이 완료되었습니다");
+          } else {
+            alert("비밀번호를 다시 확인하세요");
+          }
+        }
+      </script>
+    </div>
+  </body>
+</html>
