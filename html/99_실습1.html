@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>실습1</title>
+  </head>
+  <body>
+    <h1>테마변경</h1>
+    <button onclick="밝은모드()">밝은 모드</button>
+    <button onclick="어두운모드()">어두운 모드</button>
+    <button onclick="분홍모드()">분홍 모드</button>
+    <button onclick="초록모드()">초록 모드</button>
+
+    <script>
+      const 바디 = document.querySelector("body");
+
+      function 밝은모드() {
+        바디.style.color = "black";
+        바디.style.backgroundColor = "white";
+      }
+      function 어두운모드() {
+        바디.style.color = "white";
+        바디.style.backgroundColor = "black";
+      }
+      function 분홍모드() {
+        바디.style.color = "white";
+        바디.style.backgroundColor = "pink";
+      }
+      function 초록모드() {
+        바디.style.color = "white";
+        바디.style.backgroundColor = "green";
+      }
+    </script>
+  </body>
+</html>
