@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MBTI</title>
+    <style>
+        .선택한옵션들{
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            
+        }
+        .선택한옵션{
+            border: 2px solid black;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>성격 유형 테스트</h1>
+    <div class="문제">
+      <p>각 질문에 대해 솔직하게 적절한 답변을 선택하세요.</p>
+      <div id="문제1">
+        <p>1. 새로운 사람들과 만날 때, 당신은 어떻게 접근하나요?</p>
+        <div class="선택한옵션들">
+          <div class="선택한옵션" onclick="옵션선택('E')">활발하게 접근한다</div>
+          <div class="선택한옵션" onclick="옵션선택('I')">조용하게 관찰한다</div>
+        </div>
+      </div>
+      <div id="문제2">
+        <p>2. 주어진 일에 대해, 당신은 어떤 모습을 보이나요?</p>
+        <div onclick="옵션선택('S')">실제적이고 현실적이다.</div>
+        <div onclick="옵션선택('N')">감정적이고 친화적이다.</div>
+      </div>
+      <div id="문제3">
+        <p>3. 변화에 대처할 때, 당신은 어떻게 행동하나요?</p>
+        <div>
+          <div onclick="옵션선택('T')">논리적으로 분석적이다.</div>
+          <div onclick="옵션선택('F')">창의적이고 비전을 갖는다.</div>
+        </div>
+      </div>
+      <div id="문제4">
+        <p>4. 계획을 세울 때, 당신은 주로 어떤 방식을 사용하나요?</p>
+        <div>
+          <div onclick="옵션선택('J')">계획을 세우고 준비한다</div>
+          <div onclick="옵션선택('P')">융통성 있게 대처한다</div>
+        </div>
+      </div>
+      <div id="문제5">
+        <p>5. 스트레스 상황에서 당신은 보통 어떤 행동을 하나요?</p>
+        <div>
+            <div onclick="옵션선택('E')">사람들과 소통한다</div>
+            <div onclick="옵션선택('I')">혼자서 시간을 보낸다</div>
+        </div>
+      </div>
+
+      <div id="결과확인"></div>
+
+      <script>
+        //const let 중에서 변수처럼 안에 있는 값이 변경 가능한 let 사용
+        let 정답 = {}; //빈 장바구니같은 배열
+
+        //옵션선택 기능만들기
+        function 옵션선택(선택한옵션){
+            //각 질문에 대한 답을 저장
+            let 현재질문 = Object.keys(정답).length + 1;
+            정답['문제' + 현재질문] = 선택한옵션; //정답이라는 배열에 내가 선택한 문제와 문제에 대한 옵션을 저장
+            //{'문제1' : 'E'}
+
+            //다음질문 보여주기
+            let 다음질문 = 현재질문+1;
+
+            let 현재질문div = document.getElementById('문제' + 현재질문);
+            let 다음질문div = document.getElementById('문제' + 다음질문);
+
+            //만약에 다음질문으로 왔으면 현재질문은 숨기고 다음질문을 보여주겠다.
+            if(다음질문div){
+                현재질문div.style.display = 'none'; // 현재 질문 숨기기
+                다음질문div.style.display = 'block'; // 다음 질문 보여주기
+            } else{
+                결과확인하기();
+            }
+        }
+      </script>
+
+    </div>
+  </body>
+</html>
