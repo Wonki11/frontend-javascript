@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>채팅 프로그램</title>
+  </head>
+  <body>
+    <h1>챗봇 상담하기</h1>
+    <div id="컨테이너">
+      <div id="채팅박스"></div>
+      <div id="내용">
+        <input
+          type="text"
+          name=""
+          id="uesr_input"
+          placeholder="메세지를 입력하세요"
+        />
+        <button onclick="sendmessage()">보내기</button>
+      </div>
+    </div>
+    <script>
+        function 메세지보이기(sender , message){
+            const 챗박스 = document.getElementById("채팅박스");
+            const messageElement = document.createElement("div");
+            messageElement.classList.add("message" , sender + "-message")
+
+        }
+    </script>
+  </body>
+</html>
