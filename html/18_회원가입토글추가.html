@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .히든{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+    <h1>회원가입</h1>
+    <div>
+        <label for="">이름 : </label>
+        <input type="text" name="" id="user_name" required placeholder="고영희">
+    </div>
+    <div>
+        <label for="">이메일 : </label>
+        <input type="text" name="" id="user_email" required placeholder="ko@kh.kh">
+    </div>
+    <div>
+        <label for="">비밀번호 : </label>
+        <input type="password" name="" id="user_pw" required>
+    </div>
+    <div>
+        <label for="">비밀번호확인 : </label>
+        <input type="password" name="" id="user_pw_confirm" required>
+    </div>
+
+        
+    <button onclick="확인()">회원가입</button> <br><br>
+    <button onclick="이용약관()">이용약관</button><br><br>
+</form>
+    <div id="약관">약관 보이기숨기기</div>
+
+    <script>
+        const 이름 = document.getElementById("user_name");
+        const 이메일 = document.getElementById("user_email");
+
+        function 확인(){
+            const 네임 = 이름.value;
+            const 메일 = 이메일.value;
+
+          
+            if(네임 != 메일){
+                alert("회원가입 되었습니다");
+            }else{
+                alert("이미 가입된 회원입니다.");
+            }
+        }
+            function 이용약관(){
+                const 보이기숨기기 = document.getElementById("약관");
+                if(보이기숨기기.classList.contains("히든")){
+                    보이기숨기기.classList.remove("히든");
+                }else{
+                    보이기숨기기.classList.add("히든");
+                }
+            }
+            
+            
+        
+    </script>
+    
+</body>
+</html>
