@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script
+    type="text/javascript"
+    src="https://code.jquery.com/jquery-3.7.1.js">
+  </script>
+  <script>
+    $(document).ready(function(){
+        $("#검색박스").keyup(function(){ // keyup 검색해서 나오는 값 출력
+            const 검색박스 = $(this).val();// input에서 검색한 내용 가져오기
+            $('li').each(function(){ //for - each 처럼 반복문
+                var 텍스트 = $(this).text();
+                //indexOf 는 배열에서 특정 태그의 자리값을 찾는데 사용
+                // index 0부터 시작 -1은 없는 값이기 때문에 값이없으면 hide로 가려주자
+                if(텍스트.indexOf(검색박스)=== -1){
+                    $(this).hide();
+                }else
+                $(this).show();
+            })
+        })
+    })
+  </script>
+  <style>
+    .컨테이너 {
+        width: 600px;
+        margin: 20px auto;
+        padding:  20px;
+        background-color:  white;
+        border-radius:  10px;
+        box-shadow:  0 0 10px #ccc;
+    }
+    #검색박스{
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    ul{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    li{
+        padding: 15px;
+        border-bottom: 1px solid #ccc;
+        background-color: white;
+    }
+    body{
+        background-color: aliceblue;
+    }
+  </style>
+</head>
+<body>
+    <div class="컨테이너">
+        <input type="text" name="" id="검색박스" placeholder="메뉴를 검색하세요">
+        <ul id="메뉴리스트">
+            <li>햄버거</li>
+            <li>피자</li>
+            <li>파스타</li>
+            <li>샐러드</li>
+            <li>샌드위치</li>
+            <li>수프</li>
+            <li>돈까스</li>
+            <li>카레</li>
+        </ul>
+    </div>
+</body>
+</html>
