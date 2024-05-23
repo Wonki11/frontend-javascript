@@ -70,7 +70,8 @@
         <div class="number">7</div>
         <div class="number">8</div>
         <div class="number">9</div>
-        <div class="number">10</div>
+        <!-- 숫자 게임에는 10이 없음-->
+        <div class="number">0</div>
     </div>
     <div>
         클릭한숫자 : <span id="result"></span>
@@ -106,10 +107,27 @@
                 if(result.textContent.length === 11){
                     alert("10자 까지만 선택가능합니다.")
                     return;
-                }else if(result.textContent.length === 10){
+                   
+               }
+
+               //숫자 결과에 클릭한 숫자들 모두 += 옆에다가 담아두기
+               result.textContent += e.target.textContent;
+
+               //선택된 숫자에 active
+               e.target.classList.add("active");
+
+               
+               if(result.textContent.length === 11){
+                for (let item of numbers) {
+                    item.removeEventListener("click" , handleClick);
+                }
+                console.log("더 이상 숫자를 선택할 수 없습니다.");
+               }
+
+               /* else if(result.textContent.length === 10){
                     alert("10자 까지만 선택가능합니다.")
                     return;
-                }
+                }*/
                     
                 
                 result.textContent += e.target.textContent;
