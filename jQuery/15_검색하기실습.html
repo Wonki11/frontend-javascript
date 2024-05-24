@@ -34,7 +34,7 @@
             background-color: aliceblue;
         }
         #검색결과{
-            display: none; //검색결과 숨기기
+            display: none; /*검색결과 숨기기*/
         }
       </style>
     <script
@@ -47,12 +47,15 @@
             const 검색박스 = $(this).val();
             var 검색결과확인 = false;
             $('li').each(function(){
-                var 텍스트 = $(this).text();
-                if(텍스트.indexOf(검색박스)=== -1){
+                var text = $(this).text();
+                console.log(" ***************** ");
+                console.log(text); // 자바에서 System.out.print 같은 존재
+                if(text.indexOf(검색박스)=== -1){
                     $(this).hide();
-                }else
+                }else{
                 $(this).show();
-                검색결과확인 = true;
+                 검색결과확인 = true;
+            }
             });
 
             //만약에 검색한 결과가 있으면 검색 결과가 없습니다를 숨기고
