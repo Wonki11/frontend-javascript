@@ -9,10 +9,28 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <style>
+        .footer{
+            background-color: #007bff;
+            color:  white;
+            padding:  1rem 0; /* 16px */
+            position: relative; /* 아래로 고정 */
+            width: 100%;
+            bottom: 0;   
+        }
+        .footer a{
+            color: white;
+            text-decoration: none;
+        }
+        .footer a:hover{
+            /* 마우스를 a 태그 위에 올리면 아래에 줄이 생김*/
+            text-decoration: underline;
+        }
+    </style>
   </head>
   <body>
     <!--네비게이션 바-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info" >
       <a href="#" class="navbar-brand">브랜드위치</a>
       <button
         class="navbar-toggler"
@@ -98,6 +116,22 @@
       
 
     </div>
+    <!-- 푸터 -->
+    <footer class="footer mt-5">
+        <div class="container ">
+            <p>&copy; 2024 브랜드명. All Rights Reserved.</p>
+            <p>
+                <a href="#">개인정보처리방침</a> | <a href="#">이용약관</a>
+            </p>
+        </div>
+    </footer>
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
 
   </body>
 </html>

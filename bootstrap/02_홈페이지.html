@@ -10,9 +10,11 @@
       crossorigin="anonymous"
     />
     <style>
-        .aaa img{
-            width: 322px;
-            height: 214.81px;
+        .card-img-top{
+          /*  width: 322px;
+            height: 214.81px;*/
+            object-fit: cover; /*이미지나 비디오를 틀 안에 어떻게 맞춰서 작성할지 선택 */
+            height: 200px;     /* cover는 이미지나 비디오가 틀의 비율을 유지하면서 틀에 완전히 채워지도록 조정함*/
         }
     </style>
     
@@ -33,7 +35,7 @@
                     <a href="#" class="nav-link">게시판</a>
                 </li>
                 <li class="nav-item">
-                    <a href="이미지갤러리.html" class="nav-link">이미지 갤러리</a>
+                    <a href="03_이미지갤러리.html" class="nav-link">이미지 갤러리</a>
                 </li>
             </ul>
         </div>
@@ -44,11 +46,12 @@
 
     <div class="container">
       <!-- 전체 틀 -->
-      <div class="row">
+      <div class="row mt-5">
         <!-- 가로 -->
         <div class="col-md-4">
           <!-- col = 세로 md 중간사이즈 4칸 차지 -->
-          <div class="card">
+          <div class="card text-bg-warning">
+            <div class="card-header">Header</div>
             <div class="card-body">
               <img src="pig.jpg" class="card-img-top" />
               <h5 class="card-title">카드타이틀</h5>
@@ -81,7 +84,7 @@
         </div>
       </div>
       <div class="aaa">
-      <div class="row">
+      <div class="row mt-5">
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
