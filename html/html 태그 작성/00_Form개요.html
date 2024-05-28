@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Form 관련 내용 정리</title>
+</head>
+<body>
+    <h1>Form 태그</h1>
+    <pre>
+        Form 태그 : 사용자 입력을 수집하고 서버로 전송하는데 사용
+
+        속성 : 
+            action : 데이터가 전달될 주소값을 지정
+                ex) 결과.html
+            method : 폼 데이터 전송 방식 지정
+                    GET : 작성한 내용을 url에 전송 표시됨
+                        보안에 취약함 
+                        길이제한이 있음 (2048자)
+                        검색할 때 많이 사용
+                    POST : 본문을 통해 데이터를 전송 url에 표시하지 않고 전송
+                        GET 보다는 안전
+                        데이터 길이 제한 X
+                        주로 jQuery Ajax 에서 사용
+                        회원가입, 아이디/비밀번호 찾기 로그인할 때 사용
+                        
+                enctype : 폼 데이터의 인코딩 방식을 지정
+                          주로 파일 업로드를 진행할 경우 사용
+                          multipart/form-data : 파일 업로드 시 사용
+                
+                target : 폼 데이터가 제출될 때의 응답을 표시할 창이나 프레임을 지정
+                      target="_self" (현재창에서 이동하기)
+                      target="_blank"(새창에서 이동하기)
+    </pre>
+
+    <h3>Form 안에 작성된 input textarea 태그</h3>
+    <pre>
+        form 안에 작성된 input 과 textarea 는
+        작성된 내용이 어느 부분에 해당하는지 식별할 때
+        name 속성을 사용해서 전달
+    </pre>
+
+    <h3>URL Search Params</h3>
+    <pre>
+        url 주소에 작성된 곳에서 사용자가 입력한 데이터를 가져와서
+        화면에 표시할 수 있음
+
+        url 이란 ?   https://www.naver.com 과 같은 주소 의미
+
+        Window.location.search = 현재 html의 url을 가리킴
+        url에서 ? 시작해서 끝까지 작성된 부분을 전달
+        예를 들어
+            url = https://www.khT.com/?이름=홍길동
+            Window.location.search 는 ?이름=홍길동 반환
+            url = https://www.khT.com/?이름=홍길동&나이=40
+            Window.location.search 는 ?이름=홍길동&나이=40 반환
+            new URLSearchParams(?이름=홍길동&나이=40 반환);
+            new 안에 들어간 이름과 나이를 선택해서 가져오는 것
+            get 을 이용해서 가져옴
+
+
+
+        const url이름값가져오기 = new URLSearchParams(Window.location.search);
+                const 가져온이름 = url이름값가져오기.get("userName");
+    </pre>
+
+    <h3>폼 작성하기</h3>
+    <form action="결과.html" method="get">
+        <label for="">이름 : </label>
+        <input type="text" name="userName" id="">
+        <button type="submit">전송하기</button>
+    </form>
+
+    <!-- ----- 결과.html ----- -->
+    <h3>폼 작성결과 확인하기</h3>
+    <div>
+        <h1>폼 결과</h1>
+        <p>이름 : <span id="resultName"><!-- 추후 보여질 결과이름--></span></p>
+        <script>
+            $(document).ready(function(){
+                const url이름값가져오기 = new URLSearchParams(Window.location.search);
+                const 가져온이름 = url이름값가져오기.get("userName");
+                $('#resultName').text(가져온이름); // 가져온이름 보여주기 실행
+            })
+
+            /*
+            만약에 name 속성에 영어나 숫자이외 다른 언어를 쓸 경우
+            decodeURIComponent 를 사용해서 컴퓨터가 읽을 수 있도록 한 번 더 감싸줘야함
+                $('#resultName').text(decodeURIComponent(가져온이름))
+            */
+                
+            
+        </script>
+    </div>
+</body>
+</html>
